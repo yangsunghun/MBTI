@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TestForm from "../components/TestForm";
 import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { createTestResult } from "../api/testResults";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext";
 
-const TestPage = ({ user }) => {
+const TestPage = () => {
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
 
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);
+    setResult(mbtiResult);
+    try {
+      const resultPayload = {
+        userid: user.userId,
+        username: user.nickname,
+        mbti: mbtiResult,
+        description: mbtiDescriptions[mbtiResult],
+        createdAt: new Date().toISOString(),
+        visibility: true, // 기본값: 공개
+      };
+      await createTestResult(resultPayload);
+    } catch (error) {
+      console.error(error.message);
+    }
     /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
   };
 

@@ -62,4 +62,4 @@ const answers = [
 ];
 
 const mbtiResult = calculateMBTI(answers);
-console.log("MBTI 결과:", mbtiResult); // 예: "MBTI 결과: ESTJ"
+//console.log("MBTI 결과:", mbtiResult);

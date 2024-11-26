@@ -2,7 +2,6 @@ import React from "react";
 
 const Home = () => {
   return (
-    
     <div className="w-full flex flex-col items-center justify-center bg-gray-100">
       <h1 className="text-5xl font-bold text-primary-color mb-6">
         무료 성격 테스트
