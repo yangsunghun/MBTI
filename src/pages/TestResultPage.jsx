@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import TestResultList from "../components/TestResultList";
 import { getTestResults } from "../api/testResults";
-//import { UserContext } from "../contexts/UserContext";
 
 const TestResultPage = () => {
-  //const { user } = useContext(UserContext);
   const [result, setResult] = useState([]);
 
   useEffect(() => {
@@ -12,8 +10,6 @@ const TestResultPage = () => {
       try {
         const fatchResult = await getTestResults();
         setResult(fatchResult);
-
-
       } catch (error) {
         console.error(error);
       }

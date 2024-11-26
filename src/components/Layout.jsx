@@ -1,6 +1,19 @@
-import { Link, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext";
+import { toast } from "react-toastify";
 
 const Layout = () => {
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    setUser(null);
+    toast.success("로그아웃");
+    navigate("/");
+  };
+
   return (
     <div className="h-full bg-gray-100 flex flex-col justify-between">
       <header className="bg-primary-color p-4 shadow-md">
@@ -10,7 +23,12 @@ const Layout = () => {
           </Link>
           <Link to="/profile">프로필</Link>
           <Link to="/test">테스트</Link>
-          <Link to="/result">결과</Link>
+          <Link to="/results">결과</Link>
+          {user ? (
+            <button onClick={handleLogout}>로그아웃</button>
+          ) : (
+            <button onClick={() => navigate("/login")}>로그인</button>
+          )}
         </nav>
       </header>
 
