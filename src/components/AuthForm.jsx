@@ -29,7 +29,10 @@ const AuthForm = ({ mode, onSubmit }) => {
 
   // id 입력을 위한 input 만 힌트로 만들어 두었습니다. 참고해서 한번 만들어봅시다!
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      class="space-y-6 bg-gray-50 p-6 rounded-lg shadow-md"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         name="id"
@@ -37,6 +40,7 @@ const AuthForm = ({ mode, onSubmit }) => {
         onChange={handleChange}
         placeholder="아이디"
         required
+        class="w-full p-4 border border-gray-300 rounded-lg"
       />
       <input
         type="password"
@@ -45,6 +49,7 @@ const AuthForm = ({ mode, onSubmit }) => {
         onChange={handleChange}
         placeholder="비밀번호"
         required
+        class="w-full p-4 border border-gray-300 rounded-lg"
       />
       {mode === "signup" && (
         <input
@@ -57,7 +62,12 @@ const AuthForm = ({ mode, onSubmit }) => {
           className="w-full p-4 border border-gray-300 rounded-lg"
         />
       )}
-      <button type="">{mode === "login" ? "로그인" : "회원가입"}</button>
+      <button
+        type=""
+        class="w-full bg-primary-color text-white py-3 rounded-lg hover:bg-secondary-color transition duration-300 hover:text-[#FF5A5F]"
+      >
+        {mode === "login" ? "로그인" : "회원가입"}
+      </button>
     </form>
   );
 };
