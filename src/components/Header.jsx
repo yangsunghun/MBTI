@@ -18,17 +18,21 @@ const Header = () => {
   return (
     <header className="bg-primary-color p-4 shadow-md">
       <nav className="container mx-auto flex justify-between items-center text-white">
-        <Link to="/" className="text-lg font-semibold">
-          홈
-        </Link>
-        <Link to="/profile">프로필</Link>
-        <Link to="/test">테스트</Link>
-        <Link to="/results">결과</Link>
-        {user ? (
-          <button onClick={handleLogout}>로그아웃</button>
-        ) : (
-          <button onClick={() => navigate("/login")}>로그인</button>
-        )}
+        <div>
+          <Link to="/" className="text-lg font-semibold">
+            홈
+          </Link>
+        </div>
+        <div className="flex justify-end gap-20">
+          <Link to="/profile">프로필</Link>
+          <Link to="/test">테스트</Link>
+          <Link to="/results">결과</Link>
+          {user ? (
+            <button onClick={handleLogout}>로그아웃</button>
+          ) : (
+            <button onClick={() => navigate("/login")}>로그인</button>
+          )}
+        </div>
       </nav>
     </header>
   );
