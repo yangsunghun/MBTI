@@ -22,14 +22,14 @@ const Login = () => {
   };
 
   return (
-    <div class="w-full flex flex-col items-center justify-center bg-gray-100">
-      <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
-        <h1 class="text-3xl font-bold text-primary-color mb-6">로그인</h1>
+    <div className="w-full flex flex-col items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h1 className="text-3xl font-bold text-primary-color mb-6">로그인</h1>
         <AuthForm mode="login" onSubmit={handleLogin} />
-        <div class="mt-4">
-          <p class="text-gray-600">
+        <div className="mt-4">
+          <p className="text-gray-600">
             계정이 없으신가요?
-            <Link class="text-primary-color hover:underline" to="/signup">
+            <Link className="text-primary-color hover:underline" to="/signup">
               회원가입
             </Link>
           </p>

@@ -19,12 +19,12 @@ const Signup = () => {
   };
 
   return (
-    <div class="w-full flex flex-col items-center justify-center bg-gray-100">
-      <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
-        <h1 class="text-3xl font-bold text-primary-color mb-6">회원가입</h1>
+    <div className="w-full flex flex-col items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h1 className="text-3xl font-bold text-primary-color mb-6">회원가입</h1>
         <AuthForm mode="signup" onSubmit={handleSignup} />
-        <div class="mt-4">
-          <p class="text-gray-600">
+        <div className="mt-4">
+          <p className="text-gray-600">
             이미 계정이 있으신가요? <Link to="/login">로그인</Link>
           </p>
         </div>
