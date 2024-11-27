@@ -24,7 +24,7 @@ const TestResultPage = () => {
         <h1 className="text-3xl font-bold text-primary-color mb-6 text-center">
           모든 테스트 결과
         </h1>
-        <TestResultList result={result} />
+        <TestResultList result={result} setResult={setResult} />
       </div>
     </div>
   );

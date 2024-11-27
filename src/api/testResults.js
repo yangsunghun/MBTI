@@ -13,9 +13,27 @@ export const createTestResult = async (resultData) => {
 };
 
 export const deleteTestResult = async (id) => {
-  await axios.delete(`${API_URL}/test-results`, id);
+  try {
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "삭제 요청 오류:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
 };
 
 export const updateTestResultVisibility = async (id, visibility) => {
-  await axios.patch(`${API_URL}/${id}`, { visibility });
+  try {
+    const response = await axios.patch(`${API_URL}/${id}`, { visibility });
+    return response.data;
+  } catch (error) {
+    console.error(
+      "업데이트 오류:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
 };
