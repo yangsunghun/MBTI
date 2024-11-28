@@ -11,7 +11,7 @@ const Header = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setUser(null);
-    toast.success("로그아웃");
+    toast.success("로그아웃 되었습니다.");
     navigate("/");
   };
 
@@ -24,11 +24,13 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex justify-end gap-20">
-          <Link to="/profile">프로필</Link>
-          <Link to="/test">테스트</Link>
-          <Link to="/results">결과</Link>
           {user ? (
-            <button onClick={handleLogout}>로그아웃</button>
+            <>
+              <Link to="/profile">프로필</Link>
+              <Link to="/test">테스트</Link>
+              <Link to="/results">결과</Link>
+              <button onClick={handleLogout}>로그아웃</button>
+            </>
           ) : (
             <button onClick={() => navigate("/login")}>로그인</button>
           )}

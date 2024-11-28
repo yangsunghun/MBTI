@@ -3,6 +3,7 @@ import AuthForm from "../components/AuthForm";
 import { login } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { setUser } = useContext(UserContext);
@@ -12,6 +13,7 @@ const Login = () => {
       const { id, password } = formData;
       const data = await login({ id, password });
       if (data.success) {
+        toast.success("로그인되었습니다.");
         setUser(data);
         navigate("/");
       }

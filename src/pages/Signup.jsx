@@ -2,6 +2,7 @@ import React from "react";
 import AuthForm from "../components/AuthForm";
 import { register } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Signup = () => {
     try {
       const data = await register(formData);
       if (data.success) {
+        toast.success("회원가입이 완료 되었습니다.");
         navigate("/login");
       }
     } catch (error) {

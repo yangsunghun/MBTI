@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { updateProfile } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const { user, setUser } = useContext(UserContext);
@@ -18,7 +19,7 @@ const Profile = () => {
     try {
       const data = await updateProfile({ nickname }, user.accessToken);
       if (data.success) {
-        alert("프로필 수정되었습니다");
+        toast.success("프로필 수정되었습니다.");
         setUser({ ...user, nickname, avatar: data.avatar });
         navigate("/");
       }

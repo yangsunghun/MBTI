@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full flex flex-col items-center justify-center bg-gray-100">
       <h1 className="text-5xl font-bold text-primary-color mb-6">
@@ -37,7 +39,12 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <button className="inline-block bg-primary-color text-white py-2 px-6 rounded-full hover:bg-secondary-color transition mb-4 hover:text-[#FF5A5F]">
+      <button
+        onClick={() => {
+          navigate("/test");
+        }}
+        className="inline-block bg-primary-color text-white py-2 px-6 rounded-full hover:bg-secondary-color transition mb-4 hover:text-[#FF5A5F]"
+      >
         내 성격 알아보러 가기
       </button>
     </div>
